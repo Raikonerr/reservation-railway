@@ -42,14 +42,16 @@
       </div>
     </nav>
 
-    <div class="bg-image w-100 h-75" style="position:relative; background-image:url('../public/pic/hometrain.png');background-repeat: no-repeat;background-size:cover" style="width : 100%">
+  <div class="bg-image w-100 h-75 opacity-75" style="position:relative; background-image:url('../public/pic/bg2.jpg');background-repeat: no-repeat;background-size:cover" style="width : 100%">
       <div class="position-absolute" style="color:white; top:40%;left:20%; right: 20%">
-        <p class = "fw-Bold color-white display-5">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+        <p class = "fw-Bold display-5 " style="color:black ;">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+        <a href="http://localhost/Brief5/Controller/" type="button" class="btn btn-primary">Book now</a>
       </div>
 
   
   </div>
-</div>
+
+
     
 
 
