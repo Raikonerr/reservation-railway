@@ -1,5 +1,5 @@
 <?php 
-
+require_once 'header.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,43 +12,94 @@
     <link rel="stylesheet" href="./public/style.css">
     <title>Train</title>
 </head>
-<body class = "vw-100 vh-100">
-<nav class="navbar navbar-expand-lg navbar-light py-3 bg-primary">
-      <div class="container">
-        <a href="#" class="navbar-brand">LOGO</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navmenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse  " id="navmenu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item me-4 ">
-              <a href="home" class="nav-link fw-bold" style = "color: white">Home</a>
-            </li>
-            <li class="nav-item me-4">
-              <a href="booking" class="nav-link fw-bold" style = "color: white">Booking</a>
-            </li>
-            <li class="nav-item me-4">
-              <a href="signin" class="nav-link fw-bold" style = "color: white">Sign in</a>
-            </li>
-            <li class="nav-item me-4">
-              <a href="signup" class="nav-link fw-bold" style = "color: white">Sign up</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<body class = "vw-100 vh-100" style="background-image:url('../public/pic/background.png');background-repeat: no-repeat;background-size:cover" >
 
-  <div class="bg-image w-100 h-75 opacity-75" style="position:relative; background-image:url('../public/pic/bg2.jpg');background-repeat: no-repeat;background-size:cover" style="width : 100%">
+
+  <div class="bg-image w-100 h-75 opacity-75" style="position:relative; background-image:url('../public/pic/bgbg.jfif');background-repeat: no-repeat;background-size:cover" style="width : 100%">
       <div class="position-absolute" style="color:white; top:40%;left:20%; right: 20%">
-        <p class = "fw-Bold display-5 " style="color:black ;">Lorem ipsum dolor sit amet consectetur adipisicing</p>
-        <a href="http://localhost/Brief5/Controller/" type="button" class="btn btn-primary">Book now</a>
+        <p class = "fw-Bold display-3 " style="color:primary ;">aji tsafer 3abra zaman hhh</p>
+        <a href="http://localhost/Brief5/Booking/" type="button" class="btn btn-primary">Book now</a>
       </div>
 
   
+  </div>
+  <section class="d-flex  justify-content-center">
+      <form class='w-50 p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/Brief5/home' method='POST'>
+          <div class="row mb-5">
+            <div class="col">
+              <div class="form-outline">
+								<label class="form-label text-dark">gare de depart</label>
+		            <input type="text" name="Ville_d" class="form-control">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+						   <label class="form-label text-dark">gare d'arrivee</label>
+		           <input type="text" name="Ville_a" class="form-control">
+              </div>
+            </div>
+            <?php
+            if(isset($_POST['submit']))
+            {
+            if(empty($_POST['Heure_d']) && empty($_POST['Heure_a']))
+              {
+                echo"<p class='pt-3 mb-0 text-danger'>veuillez remplir le formulaire</p>";
+              }
+            }
+            ?>
+           </div>
+              <!-- Submit button -->
+              <button type='submit' name='submit' class="btn btn-primary btn-block mb-5">
+                Search
+                </button>
+           </form> 
+           
+    </section>
+    
+    <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
+    <div class="container-lg">
+    <h1 class="text-center mb-5">Voyages Disponibles</h1>
+    <table class="table table-striped table-hover">
+        <tr>
+        <th scope="col">gare de depart</th>
+        <th scope="col">gare d'arrivee</th>
+        <th scope="col">date de depart</th>
+        <th scope="col">date d'arrivee</th>
+        <th scope="col">prix</th>
+        
+        <th scope="col"></th>
+    </tr>
+  <?php
+
+    if(isset($_POST['submit']))
+    {
+      if(!empty($_POST['Ville_d']) && !empty($_POST['Ville_a']))
+      {
+          $departSearch = $_POST['Ville_d'];
+          $arriveeSearch = $_POST['Ville_a'];
+        
+
+          foreach ($voyage as $v) 
+          {
+            if($departSearch == $v['Ville_d'] && $arriveeSearch == $v['Ville_a'])
+            {
+              echo "<tr>
+                <td>".'De '.$v['Ville_d']."</td>
+                <td>".'A '.$v['Ville_a']."</td>
+                <td>".$v['Heure_d']."</td>
+                <td>".$v['Heure_a']."</td>
+                <td>".$v['Prix']. ' DH'."</td>
+                <td>
+                    <a href='http://localhost/Brief5/booking/".$v['Id_v']."' class='btn btn-primary'>réserver</i></a>
+                <td>
+                </tr>";
+            }
+          }
+        }
+      }
+  ?>
+    
+  </table>
   </div>
 
 
@@ -60,7 +111,7 @@
 
 
 
-
+<?php require_once 'footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
