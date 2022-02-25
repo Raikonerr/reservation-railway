@@ -10,6 +10,7 @@ class HomeController
 
 	public function index()
 	{
+		
 		$voyage=Voyage::select();
 		require_once __DIR__."/../view/index.php";
 	}

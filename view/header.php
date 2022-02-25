@@ -1,10 +1,8 @@
 <?php
 
-session_start();
-
 
 ?>
-
+   
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,12 +32,18 @@ session_start();
             <li class="nav-item me-4">
               <a href="http://localhost/Brief5/Booking/index" class="nav-link fw-bold" style = "color: white">Booking</a>
             </li>
+            <?php if(isset($_SESSION['Nom_utilisateur'])):?>
+               <li class="nav-item me-4">
+                 <a href="http://localhost/Brief5/Signin/logout" class="nav-link fw-bold" style = "color: white">logOut</a>
+               </li>
+            <?php else :?>
             <li class="nav-item me-4">
               <a href="http://localhost/Brief5/Signin/index" class="nav-link fw-bold" style = "color: white">Sign in</a>
             </li>
             <li class="nav-item me-4">
               <a href="http://localhost/Brief5/signup/index" class="nav-link fw-bold" style = "color: white">Sign up</a>
             </li>
+            <?php endif ;?>
           </ul>
         </div>
       </div>

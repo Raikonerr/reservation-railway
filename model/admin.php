@@ -33,7 +33,7 @@ class Voyage
 	public function save()
 	{
 		$ctn=new Connection();
-		$ctn->insert($this->table,["Heure_d","Heure_a","Id_t","Ville_d","Ville_a","Prix","Id_v"],[$this->Heure_d,$this->Heure_a,$this->Id_t,$this->Ville_d,$this->Ville_a,$this->Prix,$this->Id_v]);
+		$ctn->insert($this->table,["Heure_d","Heure_a","Id_t","Ville_d","Ville_a","Prix",],[$this->Heure_d,$this->Heure_a,$this->Id_t,$this->Ville_d,$this->Ville_a,$this->Prix]);
 	}
 
 	public static function select()

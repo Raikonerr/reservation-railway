@@ -3,7 +3,7 @@
 require_once "connection.php";
 
 class Auth {
-    private $table = 'person';
+    public $table = 'person';
     
 
     public function __construct() {
@@ -18,9 +18,7 @@ class Auth {
     }
     public function signin($username, $password) {
         $ctn = new Connection();
-        $raiko =$ctn->selectOne($this->table, $password, $username);
-        session_start();
-        $_SESSION["id"] = $raiko['id'];
-        $_SESSION["role"] = $raiko['role'];
+        return $ctn->selectOne("person", $password, $username);
+          
     }
 }

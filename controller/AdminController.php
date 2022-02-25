@@ -37,14 +37,16 @@ class AdminController
         $Ville_a=$_POST['Ville_a'];
 		$Prix=$_POST['Prix'];
         
-		$voyage=new Voyage($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix);
+		$voyage=new Voyage($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix,"");
 		$voyage->save();
 		header("Location: http://localhost/Brief5/admin/index");
 	}
 
 	public function edit($id)
 	{
-		$voyage=Voyage::edit($id);
+		$voyage=Voyage::edit($id);	
+		$ctn=new Connection();
+		$selectedTrip=$ctn->selectTrip("vo",$id);
 		require_once __DIR__."/../view/viewadmin/edit.php";
 	}
 

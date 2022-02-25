@@ -14,12 +14,12 @@
               <h2 class="text-uppercase text-center mb-5">Login</h2>
               <form class="" action="http://localhost/Brief5/Signin/signin" method="POST">
                 <div class="form-outline mb-4">
-                  <input type="text" name="username" class="form-control form-control-lg" />
+                  <input type="text" name="Nom_utilisateur" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Username</label>
                 </div>
                
                 <div class="form-outline mb-4">
-                  <input type="password" name="password"  class="form-control form-control-lg" />
+                  <input type="password" name="Mot_de_passe"  class="form-control form-control-lg" />
                   <label class="form-label" >Password</label>
                 </div>
                 <div class="d-flex justify-content-center">

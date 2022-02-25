@@ -18,10 +18,26 @@ class SigninController
 	}
 
 	public function signin() {
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+		$username = $_POST['Nom_utilisateur'];
+		$password = $_POST['Mot_de_passe'];
 		$auth = new Auth();
-		$auth->signin($username, $password);
-		header("Location: http://localhost/Brief5/Home/index");
+		$sign=$auth->signin($username, $password);
+		if(!empty($sign))
+		{
+			session_start();
+			$_SESSION["Id_p"] = $sign['Id_p'];
+			$_SESSION["Nom_utilisateur"] = $sign['Nom_utilisateur'];
+			$_SESSION["Role"] = $sign['Role'];
+			require_once __DIR__."/../view/index.php";
+		}else
+		require_once __DIR__."/../view/signin.php";
+	}
+	public function logout()
+	{
+		unset($_SESSION["Id_p"]);
+		unset($_SESSION["Nom_utilisateur"]);
+		unset($_SESSION["Role"]);
+		// session_destroy();
+		require_once __DIR__."/../view/signin.php";
 	}
 }

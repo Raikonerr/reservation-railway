@@ -50,7 +50,8 @@
 		$query->execute(
 			[$username,$password]
 		);
-		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
+		$result=$query->fetch(PDO::FETCH_ASSOC);
+		return $result;
 	}
 	public function selectTrip($table, $id)
 	{

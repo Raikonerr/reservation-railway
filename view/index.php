@@ -1,5 +1,8 @@
 <?php 
 require_once 'header.php'
+
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,16 +11,20 @@ require_once 'header.php'
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="./public/bootstrap.min.css"> -->
+    
     <link rel="stylesheet" href="./public/style.css">
     <title>Train</title>
 </head>
 <body class = "vw-100 vh-100" style="background-image:url('../public/pic/background.png');background-repeat: no-repeat;background-size:cover" >
 
+<?php if (isset($_SESSION['Id_p'])) {
+echo $_SESSION["Id_p"];
+}
+?>
 
-  <div class="bg-image w-100 h-75 opacity-75" style="position:relative; background-image:url('../public/pic/bgbg.jfif');background-repeat: no-repeat;background-size:cover" style="width : 100%">
+  <div class="bg-image w-100 h-75 opacity-100" style="position:relative; background-image:url('../public/pic/bgbg.jfif');background-repeat: no-repeat;background-size:cover" style="width : 100%">
       <div class="position-absolute" style="color:white; top:40%;left:20%; right: 20%">
-        <p class = "fw-Bold display-3 " style="color:primary ;">aji tsafer 3abra zaman hhh</p>
+        <p class = "fw-Bold display-3 " style="color:primary ;">placeholder</p>
         <a href="http://localhost/Brief5/Booking/" type="button" class="btn btn-primary">Book now</a>
       </div>
 
@@ -48,7 +55,7 @@ require_once 'header.php'
             }
             ?>
            </div>
-              <!-- Submit button -->
+             
               <button type='submit' name='submit' class="btn btn-primary btn-block mb-5">
                 Search
                 </button>
@@ -56,7 +63,7 @@ require_once 'header.php'
            
     </section>
     
-    <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
+    
     <div class="container-lg">
     <h1 class="text-center mb-5">Voyages Disponibles</h1>
     <table class="table table-striped table-hover">
