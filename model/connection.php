@@ -1,4 +1,5 @@
-<?php class Connection
+<?php 
+class Connection
 {
 	private $servername = "localhost";
 	private $username = "root";
@@ -60,7 +61,7 @@
 		$query->execute(
 			[$id]
 		);
-		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
+		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 	public function update($table,$tableCln,$tableVal,$val,$id)
 	{
@@ -83,7 +84,17 @@
 		$query=$this->conn->prepare("DELETE FROM `$table` WHERE $val=$id");
 		$query->execute();
 	}
+	public function setResult($id){
+		//select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=11; 
+		$stmt = $this->conn->prepare("select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=$id; ");
+  		$stmt->execute();
+		return $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+		
+	}
+	
+	}
+
+	
 
 
 
-}

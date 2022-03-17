@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../public/style.css">
     <title>Railwayezpz</title>
 </head>
-<body style="background-image:url('../public/pic/background.png');background-repeat: no-repeat;background-size:cover">
+<body style="background-color:#FFFFFF;">
 <nav class="navbar navbar-expand-lg navbar-light py-3 bg-primary">
       <div class="container">
         <a href="#" class="navbar-brand">LOGO</a>
@@ -30,11 +30,15 @@
               <a href="http://localhost/Brief5/Home/index" class="nav-link fw-bold" style = "color: white">Home</a>
             </li>
             <li class="nav-item me-4">
-              <a href="http://localhost/Brief5/Booking/index" class="nav-link fw-bold" style = "color: white">Booking</a>
+              <!-- <a href="http://localhost/Brief5/Booking/index" class="nav-link fw-bold" style = "color: white">Booking</a> -->
+              <a href="http://localhost/Brief5/Booking/booking" class="nav-link fw-bold" style = "color: white">Booking</a>
             </li>
             <?php if(isset($_SESSION['Nom_utilisateur'])):?>
+              <li class="nav-item me-4">
+                 <a href="http://localhost/Brief5/Myreservation" class="nav-link fw-bold" style = "color: white">My reservation</a>
+               </li>
                <li class="nav-item me-4">
-                 <a href="http://localhost/Brief5/Signin/logout" class="nav-link fw-bold" style = "color: white">logOut</a>
+                 <a href="http://localhost/Brief5/Signin/logout" class="nav-link fw-bold" style = "color: white">log out</a>
                </li>
             <?php else :?>
             <li class="nav-item me-4">

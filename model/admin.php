@@ -60,5 +60,19 @@ class Voyage
 		$ctn=new Connection();
 		$ctn->update($this->table,["Heure_d","Heure_a","Id_t","Ville_d","Ville_a","Prix"],[$this->Heure_d,$this->Heure_a,$this->Id_t,$this->Ville_d,$this->Ville_a,$this->Prix],"Id_v",$id);
 	}
-
 }
+
+	Class Person extends Voyage{
+		private $table ='person';
+		private $Nom_utilisateur ='Nom_utilisateur';
+		private $Mail='Mail';
+		function __construct()
+	{
+	
+
+	}
+		
+		
+
+	}
+

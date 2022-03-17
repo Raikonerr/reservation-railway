@@ -68,6 +68,6 @@ class AdminController
 		$voyage=Voyage::delete($id);
 		header("Location: http://localhost/Brief5/admin/index");
 	}
-
+	
 
 }

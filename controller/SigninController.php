@@ -2,7 +2,7 @@
 
 
 require_once __DIR__ . '/../model/auth.php';
-
+session_start();
 
 class SigninController
 {
@@ -24,7 +24,6 @@ class SigninController
 		$sign=$auth->signin($username, $password);
 		if(!empty($sign))
 		{
-			session_start();
 			$_SESSION["Id_p"] = $sign['Id_p'];
 			$_SESSION["Nom_utilisateur"] = $sign['Nom_utilisateur'];
 			$_SESSION["Role"] = $sign['Role'];
@@ -37,7 +36,7 @@ class SigninController
 		unset($_SESSION["Id_p"]);
 		unset($_SESSION["Nom_utilisateur"]);
 		unset($_SESSION["Role"]);
-		// session_destroy();
+		session_destroy();
 		require_once __DIR__."/../view/signin.php";
 	}
 }
