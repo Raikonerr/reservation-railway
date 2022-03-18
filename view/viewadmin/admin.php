@@ -53,10 +53,7 @@
             </li>
             
           </ul>
-          <form class="d-flex">
-            <input class="form-control  mx-2" type="search" placeholder="" aria-label="Search">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-          </form>
+          
         </div>
       </div>
     </nav>

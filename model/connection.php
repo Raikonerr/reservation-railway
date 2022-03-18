@@ -75,7 +75,7 @@ class Connection
 			}
 			$names.=$vrls."`".$tableCln[$i]."`='".$tableVal[$i]."'";
 		}
-		$str="UPDATE $table SET $names WHERE id=$id";
+		$str="UPDATE $table SET $names WHERE Id_v=$id";
 		$query=$this->conn->prepare($str);
 		$query->execute();
 	}

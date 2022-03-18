@@ -52,10 +52,10 @@ class AdminController
 
 	public function update($id)
 	{
-		$id=$_POST['Id_v'];
+		// $id=$_POST['Id_v'];
 		$Heure_d=$_POST['Heure_d'];
 		$Heure_a=$_POST['Heure_a'];
-        $Jour=$_POST['Id_t'];
+        $Id_t=$_POST['Id_t'];
 		$Ville_d=$_POST['Ville_d'];
         $Ville_a=$_POST['Ville_a'];
 		$Prix=$_POST['Prix'];

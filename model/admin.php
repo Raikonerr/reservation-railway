@@ -17,9 +17,9 @@ class Voyage
 	
 
 
-	function __construct($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix,$Id_v)
+	function __construct($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix)
 	{
-		$this->Id_v=$Id_v;
+		//$this->Id_v=$Id_v;
 		$this->Heure_d=$Heure_d;
 		$this->Heure_a=$Heure_a;
         $this->Id_t=$Id_t;

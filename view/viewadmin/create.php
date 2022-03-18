@@ -47,7 +47,7 @@
         </div>
       </div>
     </nav>
-	<h1 class="text-center mb-5 border border-primary p-3">Ajouter un voyage</h1>
+	<h1 class="text-center mb-5 p-3">Add a Trip</h1>
     
 	<div class="container">
 		<form action="http://localhost/Brief5/admin/save" method="POST">

@@ -19,7 +19,7 @@
         }
       
     </style>
-	<title>create produit</title>
+	<title>Edit produit</title>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light py-3 bg-primary fixed-top">
       <div class="container">
@@ -47,10 +47,10 @@
         </div>
       </div>
     </nav>
-	<h1 class="text-center mb-5 border border-primary p-3">Editer un voyage</h1>
+	<h1 class="text-center mb-5 p-3">Edit trip</h1>
    
 	<div class="container">
-		<form action="http://localhost/Brief5/admin/edit/<?=$voayge['id_v']?> method="POST">
+		<form action="http://localhost/Brief5/admin/update/<?=$voyage['Id_v']?>" method="POST">
 			<div class="row">
 			<div class="col">
 				<label class="form-label">date de depart</label>
