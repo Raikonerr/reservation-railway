@@ -17,7 +17,16 @@ class Connection
 			  echo "Connection failed: " . $e->getMessage();
 			}
 	}
+	public function connect()
+	{
 
+		try {
+			  $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
+			} catch(PDOException $e) 
+			{
+			  echo "Connection failed: " . $e->getMessage();
+			}
+	}
 	public function insert($table,$tableCln,$tableVal)
 	{
 		$names="";
@@ -91,7 +100,31 @@ class Connection
 		return $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 		
 	}
+
+	public function getIdUser(){
+
+		$stmt = $this->conn->prepare("select MAX(Id_u) as Id_u from user");
+  		$stmt->execute();
+        return  $stmt->fetch(PDO::FETCH_ASSOC);
+        
+	}
+
+
+
+	public function addReserve($iduser,$idv,$payement){
+		$res="INSERT INTO `reservation`(`Id_p`, `Id_v`, `Payement`) VALUES ('$iduser','$idv','$payement')";
+        $queryReserve=$this->conn->prepare($res);
+        $queryReserve->execute();
+		
+	}
+
+	// public function getResult($id){
+	// 	//select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=11; 
+	// 	$stmt = $this->conn->prepare("select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=$id; ");
+  	// 	$stmt->execute();
+	// 	return $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 	
+
 	}
 
 	

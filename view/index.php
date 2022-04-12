@@ -22,7 +22,7 @@ require_once 'header.php'
             <div class="col-12  col-md-6">
                 <h1 class = "fw-bold ">Life is Shorts and The world is wide </h1>
                 <p class = "lead">to get the best of yoyr adventure you just need to leave and go where you like. we are waiting for you.</p>
-                <a href="/Brief5/booking" class="btn btn-warning fw-bold shadow">Book Now</a>
+                <a href="/Brief5/booking/btn" class="btn btn-warning fw-bold shadow">Book Now</a>
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-end align-items-center">
             <img  src="../public/pic/Subway.png" class="image-fluid w-75" alt="">

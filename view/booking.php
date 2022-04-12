@@ -5,7 +5,7 @@ require_once 'header.php';
 <body class = " vh-100" >
 <?php if(!isset($_SESSION['Id_p'])) : ?>
     <div class="container  p-5 mt-5 shadow">
-    <form action="http://localhost/Brief5/booking/book/<?=$getTrip['Id_v']?>" class="">
+    <form action="http://localhost/Brief5/booking/bookUser/<?=$getTrip['Id_v']?>" method="POST">
       <div class="p-2">
         
         <div class="row ">  
@@ -36,14 +36,18 @@ require_once 'header.php';
         <div class="row">
             <div class="col-md-6 col-12 mb-4">
                 <div class="d-flex flex-column">
-                    <p class="h-blue fw-bold lead">Your email</p> <input class="inputbox textmuted" value="" type="text">
+                    <p class="h-blue fw-bold lead">Your email</p> <input class="inputbox textmuted" name="Email" type="mail">
                 </div>
             </div>
             <div class="col-md-6 col-12 mb-4">
                 <div class="d-flex flex-column">
-                    <p class="h-blue fw-bold lead">Your name</p> <input class="inputbox textmuted"  value="" type="text">
+                    <p class="h-blue fw-bold lead">Your First name</p> <input class="inputbox textmuted" name="Prenom"  type="text">
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="h-blue fw-bold lead">Your Last name </p> <input class="inputbox textmuted" name="Nom" type="text">
                 </div>
             </div>
+            
         </div>
         
         <div class="row ">
@@ -70,13 +74,13 @@ require_once 'header.php';
             <div class="col-md-6 col-12 mb-4 ">
                 <div class="form-control d-flex flex-column">
                     <p class="h-blue fw-bold lead"> FROM</p> 
-                    <input class="inputbox" placeholder="ina blasa" name='' value="<?=$getTrip['Ville_d']?>"  type="text">
+                    <input class="inputbox" placeholder="ina blasa" name='Ville_d' value="<?=$getTrip['Ville_d']?>"  type="text">
                 </div>
             </div>
             <div class="col-md-6 col-12 mb-4">
                 <div class="form-control d-flex flex-column">
                     <p class="h-blue fw-bold lead">railing  TO</p> 
-                    <input class="inputbox" placeholder="ina blasa" name='' value="<?=$getTrip['Ville_a']?>" type="text">
+                    <input class="inputbox" placeholder="ina blasa" name='Ville_a' value="<?=$getTrip['Ville_a']?>" type="text">
                 </div>
             </div>
         </div>
@@ -84,7 +88,7 @@ require_once 'header.php';
             <div class="col-md-6 col-12 mb-4">
                 <div class="form-control d-flex flex-column">
                     <p class="h-blue fw-bold lead">DEPARTING</p> 
-                    <input class="inputbox textmuted" name='' value="<?=$getTrip['Heure_a']?>" type="date">
+                    <input class="inputbox textmuted" name='Heure_a' value="<?=$getTrip['Heure_a']?>" type="date">
                 </div>
             </div>
             <div class="col-md-6 col-12 mb-4">

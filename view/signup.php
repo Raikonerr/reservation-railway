@@ -11,18 +11,25 @@
               <h2 class="text-uppercase text-center fw-bold mb-5">Create an account</h2>
               <form action="http://localhost/Brief5/signup/signupfunc" method="POST">
                 <div class="form-outline mb-4">
-                  <input type="text" name="username" class="form-control form-control-lg" />
-                  <label class="form-label"  for="form3Example1cg">Your Name</label>
+                  <input type="text" name="Nom" class="form-control form-control-lg" />
+                  <label class="form-label"  for="form3Example1cg">Your Last  Name</label>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="email" name="email" class="form-control form-control-lg" />
-                  <label class="form-label"  for="form3Example3cg">Your Email</label>
+                  <input type="text" name="Prenom" class="form-control form-control-lg" />
+                  <label class="form-label"  for="form3Example3cg">Your First Name</label>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="password" name="password" class="form-control form-control-lg" />
-                  <label class="form-label"  >Password</label>
+                  <input type="Email" name="Email" class="form-control form-control-lg" />
+                  <label class="form-label">Your Email</label>
                 </div>
-                
+                <div class="form-outline mb-4">
+                  <input type="text" name="Nom_utilisateur" class="form-control form-control-lg" />
+                  <label class="form-label">Username</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" name="Mot_de_passe" class="form-control form-control-lg" />
+                  <label class="form-label">Password</label>
+                </div>
                 <div class="d-flex justify-content-center">
                   <button type="submit" class="btn btn-primary btn-block rounded btn-lg gradient-custom-4 text-white">Register</button>
                 </div>

@@ -1,6 +1,7 @@
 <?php 
 
 require_once "connection.php";
+require_once "user.php";
 
 class Auth {
     public $table = 'person';
@@ -20,5 +21,17 @@ class Auth {
         $ctn = new Connection();
         return $ctn->selectOne("person", $password, $username);
           
+    }
+
+
+
+    public function signup1($username,$password,$email,$nom,$prenom){
+        $str=new User();
+        $str->insertUser($nom,$prenom,$email);
+        $last_idUser= $str->getlastId();
+        $iduser= $last_idUser['Id_u'];
+    
+        $ctn = new Connection();
+        $ctn->insert($this->table, ['Nom_utilisateur','Mot_de_passe','role','IdUser'], [$username,$password,'0',$iduser]);
     }
 }

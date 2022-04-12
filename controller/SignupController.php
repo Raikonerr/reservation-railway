@@ -20,13 +20,16 @@ class SignupController
 		
 		// echo 'hello';
 		
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		echo $username;
+		$username = $_POST['Nom_utilisateur'];
+		$email = $_POST['Email'];
+		$password = $_POST['Mot_de_passe'];
+		$nom = $_POST['Nom'];
+		$prenom = $_POST['Prenom'];
+
+
         
 		 $auth = new Auth();
-		 $auth->signup($username,$email,$password);
+		 $auth->signup1($username,$password,$email,$nom,$prenom);
 		 header("Location: http://localhost/Brief5/Home/index");
 	
 	}

@@ -54,6 +54,35 @@ class Booking{
 		$ctn->select;
 		
 	}
+	// public function insertUser($nom,$prenom,$email,$adresse)
+    // {
+    //     $str="INSERT INTO `user`( `Nom`, `Prenom`, `Email`, `Adresse`) VALUES(:nom, :prenom,:email,:adresse)";
+	// 	$query=$this->connect()->prepare($str);
+    //     $query->bindValue(':Nom', $nom);
+    //     $query->bindValue(':Prenom', $prenom);
+    //     $query->bindValue(':adresse', $adresse);
+    //     $query->bindValue(':email', $email);
+	// 	$query->execute();
+    // }
+    // public function getLastId()
+    // {
+    //     $last_id="SELECT MAX(Id_u) FROM user";
+    //     $query=$this->connect()->prepare($last_id);
+    //     $query->execute();
+    //      $results = $query->fetch();
+    //     return $results;
+    // }
+    // public function addReservation($Id_v,$payement,$nom,$prenom,$adresse,$email)
+    // {
+       
+    //     $this->insertUser($nom,$prenom,$adresse,$email);
+    //     $last_idUser = $this->getLastId();
+    //     $iduser= $last_idUser['MAX(Id_u)'];
+      
+    //     $res="INSERT INTO `reservation`(`Id_u`, `Id_v`, `Payement`) VALUES ('77','$Id_v','$payement')";
+    //     $queryReserve=$this->connect()->prepare($res);
+    //     $queryReserve->execute();
+    // }
 	
 
 }
