@@ -17,7 +17,7 @@ class BookingController
 		$voyage=Reservation::select();
 		$ctn=new Connection();
 		
-			$getTrip= $ctn->selectTrip("vo",$Id_v);
+		$getTrip= $ctn->selectTrip("vo",$Id_v);
 			
 		
 		require_once __DIR__."/../view/booking.php";
@@ -76,6 +76,25 @@ class BookingController
 			//$this->information($idT,$fname,$lname,$tel,$adresse,$email,$date);
 			header("Location: http://localhost/Brief5/Home/index");
 
+	}
+
+
+	public function archive(){
+		$book = new Booking();
+		$params=explode("/",$_GET['p']);
+		unset($params[0]);
+		unset($params[1]);
+		$book->archive($params[2]);
+		header("location: http://localhost/Brief5/Home/index");
+	}
+
+	public function active(){
+		$book = new Booking();
+		$params=explode("/",$_GET['p']);
+		unset($params[0]);
+		unset($params[1]);
+		$book->active($params[2]);
+		header("location: http://localhost/Brief5/Home/index");
 	}
 	
 

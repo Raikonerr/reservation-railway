@@ -48,7 +48,7 @@ class Connection
 
 	public function selectAll($table)
 	{
-		$query=$this->conn->prepare("SELECT * FROM `$table`");
+		$query=$this->conn->prepare("SELECT v.* FROM `vo` v where nb_places>(SELECT count(*) FROM reservation R where v.Id_v=R.Id_v);");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -65,6 +65,7 @@ class Connection
 	}
 	public function selectTrip($table, $id)
 	{
+		
 		$str = "SELECT * FROM `$table` WHERE Id_v=? ";
 		$query=$this->conn->prepare($str);
 		$query->execute(
@@ -95,7 +96,7 @@ class Connection
 	}
 	public function setResult($id){
 		//select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=11; 
-		$stmt = $this->conn->prepare("select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=$id; ");
+		$stmt = $this->conn->prepare("select person.Nom_utilisateur , vo.Ville_d,vo.Ville_a,vo.Heure_d,train.Name_t,reservation.Payement,reservation.Archive from person JOIN reservation on person.Id_p=reservation.Id_p JOIN vo on vo.Id_v=reservation.Id_v JOIN train on vo.Id_t=train.Id_t where reservation.Id_p=$id; ");
   		$stmt->execute();
 		return $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 		
@@ -124,8 +125,17 @@ class Connection
   	// 	$stmt->execute();
 	// 	return $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 	
-
+public function archiveReservation($id){
+		$stmt = $this->conn->prepare("UPDATE reservation SET Archive=1 WHERE Id_p=$id AND DATE_ADD(Heure_d,INTERVAL 1 HOUR)<NOW()");
+  		$stmt->execute();
+			
 	}
+	public function activeReservation($id){
+		$stmt = $this->conn->prepare("UPDATE reservation SET Archive=0 WHERE Id_p=$id");
+  		$stmt->execute();
+			
+	}
+}
 
 	
 

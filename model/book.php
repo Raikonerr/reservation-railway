@@ -54,6 +54,17 @@ class Booking{
 		$ctn->select;
 		
 	}
+
+
+	public function archive(){
+		$ctn=new Connection();
+		$ctn->archiveReservation();
+	}
+
+	public function active(){
+		$ctn=new Connection();
+		$ctn->activeReservation();
+	}
 	// public function insertUser($nom,$prenom,$email,$adresse)
     // {
     //     $str="INSERT INTO `user`( `Nom`, `Prenom`, `Email`, `Adresse`) VALUES(:nom, :prenom,:email,:adresse)";

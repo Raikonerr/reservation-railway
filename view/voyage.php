@@ -5,7 +5,7 @@
 ?> 
 
 <section class="d-flex  justify-content-center">
-      <form class='w-50 p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/Brief5/home/voyage' method='POST'>
+      <form class='w-50 p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/Brief5/Home/voyage' method='POST'>
           <div class="row mb-5">
             <div class="col">
               <div class="form-outline">
@@ -57,12 +57,13 @@
       if(!empty($_POST['Ville_d']) && !empty($_POST['Ville_a']))
       {
           $departSearch = $_POST['Ville_d'];
-          $arriveeSearch = $_POST['Ville_a'];
+          $arriveSearch = $_POST['Ville_a'];
         
 
           foreach ($voyage as $v) 
           {
-            if($departSearch == $v['Ville_d'] && $arriveeSearch == $v['Ville_a'])
+            if($departSearch == $v['Ville_d'] && $arriveSearch == $v['Ville_a'])
+            
             {
 
               echo "<tr>
@@ -87,5 +88,4 @@
   </table>
   </div>
 
-  <?php require_once 'footer.php';
-  
+ //
