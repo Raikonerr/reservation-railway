@@ -58,11 +58,14 @@
       {
           $departSearch = $_POST['Ville_d'];
           $arriveSearch = $_POST['Ville_a'];
+
+          $status = 'active';
         
 
           foreach ($voyage as $v) 
           {
-            if($departSearch == $v['Ville_d'] && $arriveSearch == $v['Ville_a'])
+            if($departSearch == $v['Ville_d'] && $arriveSearch == $v['Ville_a'] && $status == $v['Status'] && $v['Heure_d'] >= date('Y-m-d'))
+          
             
             {
 
@@ -80,6 +83,7 @@
                 </td>
                 </tr>";
             }
+            
           }
         }
       }

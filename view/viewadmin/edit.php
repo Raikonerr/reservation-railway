@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<style>
         body::before{
           display: block;
@@ -54,9 +55,11 @@
 			<div class="row">
 			<div class="col">
 				<label class="form-label">date de depart</label>
-				<input type="datetime-local" class="form-control" name="Heure_d" value="<?=$voyage['Heure_d']?>" ><br>
+				<input type="datetime-local" class="form-control" name="Heure_d" value="<?=$voyage['Heure_d']?>" id="date"
+             required><br>
 				<label class="form-label">date d'arrivee</label>
-				<input type="datetime-local" class="form-control" name="Heure_a" value="<?=$voyage['Heure_a']?>" ><br>
+				<input type="datetime-local" class="form-control" name="Heure_a" value="<?=$voyage['Heure_a']?>" min="<?=date('Y-m-d')?>"
+             required><br>
 				<label class="form-label">prix</label>
 				<input type="number" class="form-control" name="Prix" value="<?=$voyage['Prix']?>" required><br>
 			</div>
@@ -67,12 +70,30 @@
 				<input type="text" class="form-control" name="Ville_a" value="<?=$voyage['Ville_a']?>" required><br>
 				<label class="form-label">train</label>
 				<input type="number" class="form-control" name="Id_t" value="<?=$voyage['Id_t']?>" required><br>
+        <label class="form-label">nombre de places</label>
+				<input type="number" class="form-control" name="nb_places" value="<?=$voyage['nb_places']?>" required><br>
 			</div>
 			</div>
 			<button class="btn btn-primary">sauvegarder</button>
 			<a href="http://localhost/Brief5/admin" class="btn btn-warning">annuler</a>
 		</form>
 	</div>
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+   dd = '0' + dd;
+}
+if (mm < 10) {
+   mm = '0' + mm;
+} 
+today = yyyy + '/' + mm + '/' + dd;
+document.getElementById("date").setAttribute("min", today);
+</script>
+  
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

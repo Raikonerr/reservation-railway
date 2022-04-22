@@ -23,11 +23,18 @@
             <td><?php echo $row['Heure_d']; ?></td>
             <td><?php echo $row['Name_t']; ?></td>
             <td><?php echo $row['Payement']; ?></td>
-            <?php if($row['Archive']==1):?>
-                <td><a href="<?= "http://localhost/Brief5/Booking/archive/";?>" class="text-danger">Archive</a></td>
-            <?php else:?>
-                <td><a href=<?php echo "http://localhost/Brief5/Booking/active/"?> class="text-success">Unarchive</a></td>
-            <?php endif;?>
+            <td> 
+              <form action="http://localhost/Brief5/booking/cancelR" method="post">
+                  <input type="hidden"  name="Id_r" value="<?php echo $row['Id_r']; ?>">
+
+                  <input type="hidden" name="Heure_d" value="<?php echo $row['Heure_d']; ?>">
+
+                  <button type="submit" name="cancel" class="btn btn-warning" >Cancel</button>
+              </form>
+            </td>
+            
+                
+   
         </tr>
     <?php endforeach;?>
   </tbody>

@@ -56,14 +56,19 @@ class Booking{
 	}
 
 
-	public function archive(){
-		$ctn=new Connection();
-		$ctn->archiveReservation();
-	}
+	// public function archive(){
+	// 	$ctn=new Connection();
+	// 	$ctn->archiveReservation();
+	// }
 
-	public function active(){
-		$ctn=new Connection();
-		$ctn->activeReservation();
+	// public function active(){
+	// 	$ctn=new Connection();
+	// 	$ctn->activeReservation();
+	// }
+
+	public function deleteTrip($id){
+		$ctn = new Connection();
+		$ctn->deleteTrip($id);
 	}
 	// public function insertUser($nom,$prenom,$email,$adresse)
     // {

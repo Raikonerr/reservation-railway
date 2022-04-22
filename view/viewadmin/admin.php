@@ -67,10 +67,13 @@
         <tr>
         
         <th scope="col">date de depart</th>
-        <th scope="col">date d'arrivee</th>
+        <th scope="col">date d'arrivée</th>
         <th scope="col">Ville de depart</th>
-        <th scope="col">Ville d'arrivee</th>
+        <th scope="col">Ville d'arrivée</th>
         <th scope="col">Prix</th>
+        <th scope="col">Nombre de places</th>
+        <th scope="col">Status</th>
+        
         
         <th scope="col">action</th>
     </tr>
@@ -84,9 +87,12 @@
             <td>".$v['Ville_d']."</td>
             <td>".$v['Ville_a']."</td>
             <td>".$v['Prix']."</td>
+            <td>".$v['nb_places']."</td>
+            <td>".$v['Status']."</td>
             
             <td>
-                <a href='http://localhost/Brief5/admin/delete/".$v['Id_v']."' class='btn btn-secondary'>delete</i></a>
+                <a href='http://localhost/Brief5/admin/cancel/".$v['Id_v']."' class='btn btn-secondary'>cancel</i></a>
+                <a href='http://localhost/Brief5/admin/active/".$v['Id_v']."' class='btn btn-secondary'>active</i></a>
                 <a href='http://localhost/Brief5/admin/edit/".$v['Id_v']."' class='btn btn-secondary'>edit</a>
             <td></tr>";
     }

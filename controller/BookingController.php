@@ -79,24 +79,56 @@ class BookingController
 	}
 
 
-	public function archive(){
-		$book = new Booking();
-		$params=explode("/",$_GET['p']);
-		unset($params[0]);
-		unset($params[1]);
-		$book->archive($params[2]);
-		header("location: http://localhost/Brief5/Home/index");
-	}
+	// public function archive(){
+	// 	$book = new Booking();
+	// 	$params=explode("/",$_GET['p']);
+	// 	unset($params[0]);
+	// 	unset($params[1]);
+	// 	$book->archive($params[2]);
+	// 	header("location: http://localhost/Brief5/Home/index");
+	// }
 
-	public function active(){
-		$book = new Booking();
-		$params=explode("/",$_GET['p']);
-		unset($params[0]);
-		unset($params[1]);
-		$book->active($params[2]);
-		header("location: http://localhost/Brief5/Home/index");
-	}
+	// public function active(){
+	// 	$book = new Booking();
+	// 	$params=explode("/",$_GET['p']);
+	// 	unset($params[0]);
+	// 	unset($params[1]);
+	// 	$book->active($params[2]);
+	// 	header("location: http://localhost/Brief5/Home/index");
+	// }
 	
+	public function deleteTrip($id){
+		$book = new Booking();
+		$book->deleteTrip($id);
+		header("Location: http://localhost/Brief5/Home/index");
+	}
+	public function cancelR()
+            {
+
+                $day = strtotime($_POST["Heure_d"]);
+                $time =  $day - strtotime('now') + 60 * 60;
+
+                if($time > 1)
+                {
+
+                    $Id_r = $_POST["Id_r"];
+                    
+                    $delete = new Connection();
+                	 $delete->delete("reservation","Id_r",$Id_r);
+
+                    // $idTrip = $_POST["idTrip"];
+                    // $seats = $delete->Seats($idTrip);
+                    // $seats = $seats['seats'] + 1;
+
+                   
+                }
+				else
+				{
+					echo "Vous ne pouvez pas annuler votre réservation";
+				}
+
+
+            }
 
 }
 

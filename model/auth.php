@@ -19,7 +19,7 @@ class Auth {
     }
     public function signin($username, $password) {
         $ctn = new Connection();
-        return $ctn->selectOne("person", $password, $username);
+        return $ctn->selectOne("person", $username, $password);
           
     }
 

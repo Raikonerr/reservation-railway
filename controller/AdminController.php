@@ -36,8 +36,10 @@ class AdminController
 		$Ville_d=$_POST['Ville_d'];
         $Ville_a=$_POST['Ville_a'];
 		$Prix=$_POST['Prix'];
+		$Place=$_POST['nb_places'];
+		$Status="active";
         
-		$voyage=new Voyage($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix,"");
+		$voyage=new Voyage($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix,$Place,$Status);
 		$voyage->save();
 		header("Location: http://localhost/Brief5/admin/index");
 	}
@@ -59,7 +61,9 @@ class AdminController
 		$Ville_d=$_POST['Ville_d'];
         $Ville_a=$_POST['Ville_a'];
 		$Prix=$_POST['Prix'];
-		$voyage=new Voyage($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix);
+		$Place=$_POST['nb_places'];
+		$Status="active";
+		$voyage=new Voyage($Heure_d,$Heure_a,$Id_t,$Ville_d,$Ville_a,$Prix,$Place,$Status);
 		$voyage->update($id);
 		header("Location: http://localhost/Brief5/admin/index");
 	}
@@ -68,6 +72,17 @@ class AdminController
 		$voyage=Voyage::delete($id);
 		header("Location: http://localhost/Brief5/admin/index");
 	}
-	
+
+	public function cancel($id){
+		$voyage=Voyage::cancel($id);
+		header("Location: http://localhost/Brief5/admin/index");
+	}
+
+	public function active($id){
+		$voyage=Voyage::active($id);
+		header("Location: http://localhost/Brief5/admin/index");
+	}
+
+
 
 }
